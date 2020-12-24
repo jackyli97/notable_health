@@ -1,28 +1,44 @@
 {
-  "name": "notable_health",
+  "name": "notable-health",
   "private": true,
   "dependencies": {
-    "@babel/core": "^7.12.10",
-    "@babel/preset-env": "^7.12.11",
-    "@babel/preset-react": "^7.12.10",
-    "babel-loader": "^8.2.2",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "react-redux": "^7.2.2",
+    "@babel/core": "^7.11.6",
+    "@babel/preset-env": "^7.11.5",
+    "@babel/preset-react": "^7.10.4",
+    "@fortawesome/fontawesome-svg-core": "^1.2.32",
+    "@fortawesome/free-solid-svg-icons": "^5.15.1",
+    "@fortawesome/react-fontawesome": "^0.1.12",
+    "axios": "^0.20.0",
+    "babel-loader": "^8.1.0",
+    "bootstrap": "^4.5.3",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-fade-in": "^1.1.1",
+    "react-loading": "^2.0.3",
+    "react-lottie": "^1.2.3",
+    "react-redux": "^7.2.1",
     "react-router-dom": "^5.2.0",
+    "react-select": "^3.1.0",
     "redux": "^4.0.5",
-    "webpack": "^5.11.0",
-    "webpack-cli": "^4.2.0"
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.3.0",
+    "webpack": "^4.44.2"
   },
-  "description": "This README would normally document whatever steps are necessary to get the application up and running.",
+  "description": "",
   "version": "1.0.0",
   "main": "index.js",
   "directories": {
     "lib": "lib",
     "test": "test"
   },
+  "engines": {
+    "node": "10.13.0",
+    "npm": "6.9.0"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "webpack": "webpack --mode=development --watch",
+    "postinstall": "webpack"
   },
   "repository": {
     "type": "git",
@@ -32,7 +48,10 @@
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/jackyli97/notable_health/issues"
+    "url": "https://github.com/jackyli97/Jumpstarter/issues"
   },
-  "homepage": "https://github.com/jackyli97/notable_health#readme"
+  "homepage": "https://github.com/jackyli97/Jumpstarter#readme",
+  "devDependencies": {
+    "webpack-cli": "^3.3.12"
+  }
 }
