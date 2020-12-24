@@ -1,42 +1,61 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
-
+import Patients from './Patients';
 
 class PhysiciansList extends React.Component {
 
     constructor(props) {
-        super(props)
-        this.state = {currentPhysician: null}
+        super(props);
+        this.state = {patients: [], physician: ""};
         this.handleClick = this.handleClick.bind(this);
+        this.getEmail = this.getEmail.bind(this);
     }
 
     componentDidMount() {
         this.props.fetchPhysicians();
-        // this.props.fetchPatients(this.props.physician);
     }
 
     handleClick(physician) {
-        this.setState({currentPhysician: physician.id});
+        this.props.fetchPatients(physician.id).then(
+            this.setState({patients: this.props.patients, physician: physician.name})
+        )
+    }
+
+    getEmail(name) {
+        let spaceFound = false;
+        let email = ""
+        for (let i=0; i<name.length; i++){
+            if (spaceFound){
+                email += name[i];
+            }
+            else if (name[i] === " ")spaceFound = true;
+        }
+        return email += "@notablehealth.com"
     }
 
     render() {
-        if (!this.props.physicians) return null;
+        if (Object.values(this.props.physicians).length === 0) return null;
         let physicians = Object.values(this.props.physicians).map((physician, idx)=>{
-            return <li key={idx} onClick={()=>this.handleClick}>
+            return <li key={idx} onClick={()=>this.handleClick(physician)}>
                 {physician.name}
             </li>
-        })
-
-        let patients = this.state.currentPhysician ? getPatients() : <div></div>
-
+        });
+        if (this.state.patients.length === 0) {
+            this.handleClick(Object.values(this.props.physicians)[0]);
+        }
         return (
-            <div className="main-container">
-                <div className="patients-container">
+            <div className="main-physicians-container">
+                <div className="physicians-list">
+                    <img className="notable" src={window.notable} alt=""/>
+                    <h1>Physicians</h1>
                     <ul>
                         {physicians}
                     </ul>
                 </div>
-                <div>{patients}</div>
+                <div className="main-patient-container">
+                    <h1>{"Dr. " + this.state.physician}</h1>
+                    <p>{this.getEmail(this.state.physician)}</p>
+                    <Patients patients={this.props.patients}/>
+                </div>
             </div>
         )
     }

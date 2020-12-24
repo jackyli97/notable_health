@@ -1,5 +1,5 @@
 class Patient < ApplicationRecord
-    validates :name, :time, :kind, presence: true
+    validates :name, :time, :kind, :physician_id, presence: true
 
     belongs_to :physician,
         primary_key: :id,

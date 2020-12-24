@@ -12,7 +12,7 @@ Patient.destroy_all
 
 physician1 = Physician.create!(name: "Algernop Krieger")
 physician2 = Physician.create!(name: "Nick Riveiera")
-physician1 = Physician.create!(name: "Julius Hibbert")
+physician3 = Physician.create!(name: "Julius Hibbert")
 
 patient1 = Patient.create!(name: "Sterling Archer", time: "8:00AM", kind: "New Patient", physician_id: physician1.id)
 patient2 = Patient.create!(name: "Cyril Figis", time: "9:00AM", kind: "Follow-up", physician_id: physician2.id)

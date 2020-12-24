@@ -13,7 +13,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-        fetchProject: (physician_id) => dispatch(fetchPatients(physician_id)),
+        fetchPatients: (physician_id) => dispatch(fetchPatients(physician_id)),
         fetchPhysicians: () => dispatch(fetchPhysicians())
     };
 }
